@@ -1,13 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import logo from './logo.svg';
+
 
 function App() {
+
+  const [data, setdata] = useState("")
+
+  useEffect(() => {
+    axios.get("http://localhost:8000").then((response) => {
+      setdata(response.data.message)
+    })
+  }, [])
+
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          {data}
         </p>
         <a
           className="App-link"
