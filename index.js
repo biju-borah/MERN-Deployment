@@ -1,7 +1,7 @@
 const express = require("express")
 const res = require("express/lib/response")
 const app = express()
-// const cors = require('cors');
+const cors = require('cors');
 
 // app.use(function (req, res, next) {
 //     res.header("Access-Control-Allow-Origin", "http://localhost:3000");
@@ -9,7 +9,7 @@ const app = express()
 //     next();
 // });
 
-// app.use(cors());
+app.use(cors());
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
