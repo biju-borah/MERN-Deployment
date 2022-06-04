@@ -9,7 +9,7 @@ function App() {
   const [data, setdata] = useState("")
 
   useEffect(() => {
-    axios.get("http://localhost:8000").then((response) => {
+    axios.get("/api").then((response) => {
       setdata(response.data.message)
     })
   }, [])
